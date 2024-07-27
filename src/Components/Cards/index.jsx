@@ -3,7 +3,7 @@ import "./index.scss";
 import fetchHerosAPI from "../../services/heroService";
 
 
-function Card() {
+function Cards() {
   const [heros, setHeros] = useState([]);
   useEffect(() => {
     const fetchHeros = async () => {
@@ -21,7 +21,7 @@ function Card() {
   return (
     <div className="container-Card">
         {heros.map((hero) => (
-          <div className="containerCard">
+          <div className="containerCard" key={hero.id}>
             <img
               src={hero.images.md}
               alt={`Image: ${hero.title}`}
@@ -33,4 +33,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Cards;

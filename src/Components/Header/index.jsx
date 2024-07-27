@@ -11,10 +11,19 @@ function Header() {
     navigate("/");
   };
 
+  const containsSubset = (str1, str2) => {
+    const charsInEl = new Set(str1.split(''));
+    return str2.split('').every(char => charsInEl.has(char));
+  };
+  
   const search = (event) => {
-    let el = event.target.value
-    
-  }
+    let el = event.target.value.toLowerCase();
+    const matchingHeroes = heros.filter(hero => {
+      const relevantPartOfSlug = hero.slug.toLowerCase().split('-')[1];
+      return containsSubset(el, relevantPartOfSlug);
+    });
+    console.log(matchingHeroes);
+  };
 
   const [heros, setHeros] = useState([]);
   useEffect(() => {
@@ -29,7 +38,7 @@ function Header() {
 
     fetchHeros();
   }, []);
-console.log(heros)
+
   return (
       <div className="main-header">
         <div className="main-header_logo" onClick={goToStart}>
