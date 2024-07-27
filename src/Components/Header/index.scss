@@ -1,0 +1,27 @@
+.main-header {
+  height: 68px;
+  background-color: black;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &_logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    img {
+      height: 50px;
+      object-fit: cover;
+    }
+    input {
+      width: 200px;
+      height: 24px;
+      padding: 4px;
+    }
+
+  }
+}
